@@ -4,10 +4,12 @@ class Stack
 {
 private:
     short currentPosition = -1;
-    int myStack[256]; //сделать стек динамическим, добавить деструктор
+    int *myStack;
 public:
+    Stack();
+    Stack(int);
     void push(int element);
     int pop();
-    int getFirst();
     void showStack();
+    ~Stack();
 };
