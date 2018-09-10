@@ -3,6 +3,21 @@
 
 using namespace std;
 
+Stack::Stack()
+{
+    myStack = new int[256];
+}
+
+Stack::Stack(int stackSize)
+{
+    myStack = new int[stackSize];
+}
+
+Stack::~Stack()
+{
+    delete(myStack);
+}
+
 void Stack::push(int element)
 {
     myStack[++currentPosition] = element;
@@ -11,12 +26,6 @@ void Stack::push(int element)
 int Stack::pop()
 {
     if (currentPosition != -1)return myStack[currentPosition--];
-    else return -1;
-}
-
-int Stack::getFirst()
-{
-    if (currentPosition > -1) return myStack[0];
     else return -1;
 }
 
