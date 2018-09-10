@@ -31,7 +31,7 @@ double calculateExpression(string exp)
 
     while (expression.rfind(')') != string::npos)
     {
-        Stack bracketsStack;
+        Stack bracketsStack(20);
 
         int rightBracket = expression.rfind(')');
         int leftBracket;
@@ -41,7 +41,6 @@ double calculateExpression(string exp)
             if (expression[i] == '(' && bracketsStack.pop() != -1) continue;
             if (expression[i] == '(') leftBracket = i;
         }
-
         string brackets = expression.substr(leftBracket + 1, rightBracket - leftBracket - 1);
         double ans = calculateExpression(brackets);
         expression.replace(leftBracket, brackets.length() + 2, to_string(ans));
