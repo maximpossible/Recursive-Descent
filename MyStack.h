@@ -11,8 +11,3 @@ public:
     int getFirst();
     void showStack();
 };
-//
-//void Stack::push(int element);
-//int Stack::pop();
-//int Stack::getFirst();
-//void Stack::showStack();
