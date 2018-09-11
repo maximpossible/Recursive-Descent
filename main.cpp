@@ -11,10 +11,13 @@ int main()
     expression = "(2-(3+6)/3)";
     cout << calculateExpression(expression) << endl;
 
-    expression = "-3-4-5";
+    expression = "-(30*6)";
+    cout << calculateExpression(expression) << endl;
+
+    expression = "2+3^sin(30)";
+    cout << calculateExpression(expression) << endl;
+
+    expression = "sin(30)^2+cos(30)^2";
     cout << calculateExpression(expression) << endl;
     return 0;
 }
-
-
-
