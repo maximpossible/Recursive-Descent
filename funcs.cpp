@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <math.h>
 #include "MyStack.h"
 #include "Funcs.h"
 
@@ -51,7 +52,7 @@ double calculateExpression(string exp)
         return stof(expression);
     }
 
-    if (expression.rfind('+') != string::npos) //переделать на switch?
+    if (expression.rfind('+') != string::npos)
     {
         a = calculateExpression(expression.substr(0, expression.rfind('+')));
         b = calculateExpression(expression.substr(expression.rfind('+') + 1, expression.length() - 1));
@@ -74,6 +75,22 @@ double calculateExpression(string exp)
         a = calculateExpression(expression.substr(0, expression.rfind('/')));
         b = calculateExpression(expression.substr(expression.rfind('/') + 1, expression.length() - 1));
         answer = a / b;
+    }
+    else if (expression.rfind('^') != string::npos)
+    {
+        a = calculateExpression(expression.substr(0, expression.rfind('^')));
+        b = calculateExpression(expression.substr(expression.rfind('^') + 1, expression.length() - 1));
+        answer = pow(a, b);
+    }
+    else if (expression.rfind("sin") != string::npos)
+    {
+        a = calculateExpression(expression.substr(expression.rfind("sin") + 3, expression.length() - 1));
+        answer = sin(a);
+    }
+    else if (expression.rfind("cos") != string::npos)
+    {
+        a = calculateExpression(expression.substr(expression.rfind("cos") + 3, expression.length() - 1));
+        answer = cos(a);
     }
     return answer;
 }
